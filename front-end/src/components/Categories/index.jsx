@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 //? Styles
 import "./index.scss";
@@ -18,7 +19,13 @@ const Categories = () => {
     <div className="categories">
       <div className="col">
         <div className="row">
-          <img src={categoryImg[0]} alt="Sale" />
+          <LazyLoadImage
+            className="img"
+            src={categoryImg[0]}
+            effect="blur"
+            placeholderSrc={categoryImg[0]}
+            alt="Sale"
+          />
           <button>
             <Link className="link" to="/products/1">
               Sale
@@ -26,7 +33,13 @@ const Categories = () => {
           </button>
         </div>
         <div className="row">
-          <img src={categoryImg[1]} alt="Shirts" />
+          <LazyLoadImage
+            className="img"
+            src={categoryImg[1]}
+            effect="blur"
+            placeholderSrc={categoryImg[1]}
+            alt="Shirts"
+          />
           <button>
             <Link className="link" to="/products/1">
               Shirts
@@ -36,7 +49,13 @@ const Categories = () => {
       </div>
       <div className="col">
         <div className="row">
-          <img src={categoryImg[2]} alt="New Products" />
+          <LazyLoadImage
+            className="img"
+            src={categoryImg[2]}
+            effect="blur"
+            placeholderSrc={categoryImg[2]}
+            alt="New Products"
+          />
           <button>
             <Link className="link" to="/products/1">
               New Products
@@ -48,7 +67,13 @@ const Categories = () => {
         <div className="row">
           <div className="col">
             <div className="row">
-              <img src={categoryImg[3]} alt="Sweatshirts" />
+              <LazyLoadImage
+                className="img"
+                src={categoryImg[3]}
+                effect="blur"
+                placeholderSrc={categoryImg[3]}
+                alt="Sweatshirts"
+              />
               <button>
                 <Link className="link" to="/products/1">
                   Sweatshirts
@@ -58,7 +83,13 @@ const Categories = () => {
           </div>
           <div className="col">
             <div className="row">
-              <img src={categoryImg[4]} alt="Accessories" />
+              <LazyLoadImage
+                className="img"
+                src={categoryImg[4]}
+                effect="blur"
+                placeholderSrc={categoryImg[4]}
+                alt="Accessories"
+              />
               <button>
                 <Link className="link" to="/products/1">
                   Accessories
@@ -68,7 +99,13 @@ const Categories = () => {
           </div>
         </div>
         <div className="row">
-          <img src={categoryImg[5]} alt="Cutleries" />
+          <LazyLoadImage
+            className="img"
+            src={categoryImg[5]}
+            effect="blur"
+            placeholderSrc={categoryImg[5]}
+            alt="Cutleries"
+          />
           <button>
             <Link className="link" to="/products/1">
               Cutleries
