@@ -54,7 +54,6 @@ const FeaturedProducts = () => {
               data-splide-lazy={img[0]}
               alt="Carousel 1"
             />
-            <div>AKLSDUJHFLSKDJHGLKSJDHGLK</div>
           </SplideSlide>
           <SplideSlide>
             <img

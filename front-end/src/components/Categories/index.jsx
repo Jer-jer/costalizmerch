@@ -18,7 +18,12 @@ const Categories = () => {
   return (
     <div className="categories">
       <div className="col">
-        <div className="row">
+        <div
+          className="row"
+          data-aos="fade-down"
+          data-aos-anchor-placement="center-bottom"
+          data-aos-easing="ease-in-out"
+        >
           <LazyLoadImage
             className="img"
             src={categoryImg[0]}
@@ -32,7 +37,12 @@ const Categories = () => {
             </Link>
           </button>
         </div>
-        <div className="row">
+        <div
+          className="row"
+          data-aos="fade-down"
+          data-aos-anchor-placement="center-bottom"
+          data-aos-easing="ease-in-out"
+        >
           <LazyLoadImage
             className="img"
             src={categoryImg[1]}
@@ -48,7 +58,12 @@ const Categories = () => {
         </div>
       </div>
       <div className="col">
-        <div className="row">
+        <div
+          className="row"
+          data-aos="fade-down"
+          data-aos-anchor-placement="center-bottom"
+          data-aos-easing="ease-in-out"
+        >
           <LazyLoadImage
             className="img"
             src={categoryImg[2]}
@@ -66,7 +81,12 @@ const Categories = () => {
       <div className="col col-l">
         <div className="row">
           <div className="col">
-            <div className="row">
+            <div
+              className="row"
+              data-aos="fade-down"
+              data-aos-anchor-placement="center-bottom"
+              data-aos-easing="ease-in-out"
+            >
               <LazyLoadImage
                 className="img"
                 src={categoryImg[3]}
@@ -82,7 +102,12 @@ const Categories = () => {
             </div>
           </div>
           <div className="col">
-            <div className="row">
+            <div
+              className="row"
+              data-aos="fade-down"
+              data-aos-anchor-placement="center-bottom"
+              data-aos-easing="ease-in-out"
+            >
               <LazyLoadImage
                 className="img"
                 src={categoryImg[4]}
@@ -98,7 +123,12 @@ const Categories = () => {
             </div>
           </div>
         </div>
-        <div className="row">
+        <div
+          className="row"
+          data-aos="fade-down"
+          data-aos-anchor-placement="center-bottom"
+          data-aos-easing="ease-in-out"
+        >
           <LazyLoadImage
             className="img"
             src={categoryImg[5]}

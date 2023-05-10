@@ -2,37 +2,63 @@
 
 .about {
     display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    width: 70%;
-    margin: 5rem 0 0 5rem;
+    flex-direction: row;
+    justify-content: space-between;
 
-    .title {
-        h1 {
-            color: $main-color;
-            text-transform: uppercase;
-            font-size: 4em;
-            letter-spacing: 3px;
+    .left {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        width: 50%;
+
+        .title {
+            h1 {
+                color: $main-color;
+                text-transform: uppercase;
+                font-size: 2.5em;
+                letter-spacing: 3px;
+            }
+        }
+
+        hr {
+            width: 26%;
+            margin-top: 1rem;
+            margin-bottom: 3rem;
+            height: 0.1rem;
+            background-color: $main-color;
+
+            animation-name: hrWipeAnimation;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        .content {
+            line-height: 2em;
+
+            span {
+                font-size: 1em;
+                text-align: justify;
+                color: gray;
+            }
         }
     }
 
-    hr {
-        width: 28%;
-        margin-top: 1rem;
-        margin-bottom: 3rem;
-        height: 0.1rem;
-        background-color: $main-color;
-    }
-
-    .content {
-        line-height: 2em;
-
-        span {
-            font-size: 1.2em;
-            text-align: justify;
-            color: gray;
+    .right {
+        img {
+            width: 40rem;
+            height: 40rem;
         }
     }
+}
 
+@keyframes hrWipeAnimation {
+    0% {
+        width: 0;
+    }
+
+    26% {
+        width: 26%;
+    }
 }

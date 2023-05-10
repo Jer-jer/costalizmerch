@@ -58,11 +58,6 @@ const Navbar = () => {
               About
             </Link>
           </div>
-          <div className="item">
-            <Link className="link" to="/contact-us">
-              Contact
-            </Link>
-          </div>
           <div className="icons">
             <SearchRoundedIcon />
             <PersonRoundedIcon />

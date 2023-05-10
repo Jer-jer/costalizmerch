@@ -5,11 +5,13 @@ import AboutContent from "../../components/About";
 
 //? Styles
 import "./index.scss";
+import Team from "../../components/Team";
 
 const About = () => {
   return (
-    <div className="about">
+    <div className="main-about">
       <AboutContent />
+      <Team />
     </div>
   );
 };

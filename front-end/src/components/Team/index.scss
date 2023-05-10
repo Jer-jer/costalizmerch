@@ -1,0 +1,63 @@
+@import "../../variables.scss";
+
+.team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        font-size: 2em;
+        font-weight: 100;
+        margin-bottom: 4rem;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            width: 18.75rem;
+
+            img {
+                height: 18.75rem;
+                width: 100%;
+            }
+
+            .details {
+                display: flex;
+                flex-direction: column;
+                margin-top: 3rem;
+
+                h1 {
+                    font-size: 1.8em;
+                    text-decoration: underline;
+                    font-weight: 400;
+                    margin-bottom: 0.8rem;
+                }
+
+                .position {
+                    color: gray;
+                    font-size: 0.9em;
+                    font-weight: 100;
+                    margin-bottom: 1.8rem;
+                }
+
+                .desc {
+                    color: gray;
+                    font-size: 0.9em;
+                    text-align: justify;
+                    font-weight: 100;
+                    line-height: 1.8rem;
+                }
+            }
+        }
+    }
+}
