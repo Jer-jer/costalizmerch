@@ -3,6 +3,9 @@ import React, { useState } from "react";
 //? Components
 import List from "../../components/List";
 
+//? Functions
+import useFetch from "../../hooks/useFetch";
+
 //? Styles
 import "./index.scss";
 import { useParams } from "react-router-dom";
@@ -13,6 +16,27 @@ const Products = () => {
   const categoryId = parseInt(useParams().id);
   const [maxPrice, setMaxPrice] = useState(1000);
   const [sort, setSort] = useState(null);
+  const [selectedSubCategory, setSelectedSubCategory] = useState([]);
+
+  const { data } = useFetch(
+    `/sub-categories?[filters][categories][id][$eq]=${categoryId}`
+  );
+
+  const handleChange = (e) => {
+    const isChecked = e.target.checked;
+    const value = e.target.value;
+
+    isChecked ? console.log(value) : console.log("removed");
+
+    // setSelectedSubCategory(
+    //   isChecked
+    //     ? (prevArray) => [...prevArray, value]
+    //     : selectedSubCategory.filter((item) => item !== value)
+    // );
+    setSelectedSubCategory((prevArray) => [...prevArray, value]);
+
+    console.log(selectedSubCategory);
+  };
 
   return (
     <div className="products">
@@ -21,15 +45,22 @@ const Products = () => {
           <h2>Product Categories</h2>
           <div className="input-item">
             <div className="checkboxes">
-              <div className="checkbox">
-                <label className="material-checkbox" htmlFor="1">
-                  <input type="checkbox" id="1" value={1} />
-                  <span className="checkmark"></span>
-                  Shirts
-                </label>
-              </div>
+              {data?.map((item) => (
+                <div className="checkbox" key={item.id}>
+                  <label className="material-checkbox" htmlFor={item.id}>
+                    <input
+                      type="checkbox"
+                      id={item.id}
+                      value={item.id}
+                      onChange={handleChange}
+                    />
+                    <span className="checkmark"></span>
+                    {item.attributes.title}
+                  </label>
+                </div>
+              ))}
 
-              <div className="checkbox">
+              {/* <div className="checkbox">
                 <label className="material-checkbox" htmlFor="2">
                   <input type="checkbox" id="2" value={2} />
                   <span className="checkmark"></span>
@@ -51,7 +82,7 @@ const Products = () => {
                   <span className="checkmark"></span>
                   Cutleries
                 </label>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

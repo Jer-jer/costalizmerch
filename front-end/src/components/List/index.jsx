@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 
 //? Componenets
 import Card from "../Card";
@@ -55,29 +54,6 @@ const data = [
 ];
 
 const List = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await axios.get(
-          process.env.REACT_APP_API_URL + "products",
-          {
-            headers: {
-              Authorization: "bearer " + process.env.REACT_APP_API_TOKEN,
-            },
-          }
-        );
-
-        console.log(data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    console.log(fetchData);
-  }, []);
-
   return (
     <div className="list">
       {data?.map((item) => (
