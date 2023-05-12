@@ -22,33 +22,33 @@ const Products = () => {
           <div className="input-item">
             <div className="checkboxes">
               <div className="checkbox">
-                <label class="material-checkbox" htmlFor="1">
+                <label className="material-checkbox" htmlFor="1">
                   <input type="checkbox" id="1" value={1} />
-                  <span class="checkmark"></span>
+                  <span className="checkmark"></span>
                   Shirts
                 </label>
               </div>
 
               <div className="checkbox">
-                <label class="material-checkbox" htmlFor="2">
+                <label className="material-checkbox" htmlFor="2">
                   <input type="checkbox" id="2" value={2} />
-                  <span class="checkmark"></span>
+                  <span className="checkmark"></span>
                   Sweatshirts
                 </label>
               </div>
 
               <div className="checkbox">
-                <label class="material-checkbox" htmlFor="3">
+                <label className="material-checkbox" htmlFor="3">
                   <input type="checkbox" id="3" value={3} />
-                  <span class="checkmark"></span>
+                  <span className="checkmark"></span>
                   Accessories
                 </label>
               </div>
 
               <div className="checkbox">
-                <label class="material-checkbox">
+                <label className="material-checkbox">
                   <input type="checkbox" id="4" value={4} />
-                  <span class="checkmark"></span>
+                  <span className="checkmark"></span>
                   Cutleries
                 </label>
               </div>
