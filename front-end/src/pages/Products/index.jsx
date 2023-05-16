@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 
 //? Components
 import List from "../../components/List";
@@ -8,14 +9,13 @@ import useFetch from "../../hooks/useFetch";
 
 //? Styles
 import "./index.scss";
-import { useParams } from "react-router-dom";
 
 const img = ["/img/carousel2.jpg"];
 
 const Products = () => {
   const categoryId = parseInt(useParams().id);
   const [maxPrice, setMaxPrice] = useState(1000);
-  const [sort, setSort] = useState(null);
+  const [sort, setSort] = useState("desc");
   const [selectedSubCategory, setSelectedSubCategory] = useState([]);
 
   const { data } = useFetch(
@@ -26,16 +26,11 @@ const Products = () => {
     const isChecked = e.target.checked;
     const value = e.target.value;
 
-    isChecked ? console.log(value) : console.log("removed");
-
-    // setSelectedSubCategory(
-    //   isChecked
-    //     ? (prevArray) => [...prevArray, value]
-    //     : selectedSubCategory.filter((item) => item !== value)
-    // );
-    setSelectedSubCategory((prevArray) => [...prevArray, value]);
-
-    console.log(selectedSubCategory);
+    setSelectedSubCategory(
+      isChecked
+        ? [...selectedSubCategory, e.target.value]
+        : selectedSubCategory.filter((choice) => choice !== value)
+    );
   };
 
   return (
@@ -59,30 +54,6 @@ const Products = () => {
                   </label>
                 </div>
               ))}
-
-              {/* <div className="checkbox">
-                <label className="material-checkbox" htmlFor="2">
-                  <input type="checkbox" id="2" value={2} />
-                  <span className="checkmark"></span>
-                  Sweatshirts
-                </label>
-              </div>
-
-              <div className="checkbox">
-                <label className="material-checkbox" htmlFor="3">
-                  <input type="checkbox" id="3" value={3} />
-                  <span className="checkmark"></span>
-                  Accessories
-                </label>
-              </div>
-
-              <div className="checkbox">
-                <label className="material-checkbox">
-                  <input type="checkbox" id="4" value={4} />
-                  <span className="checkmark"></span>
-                  Cutleries
-                </label>
-              </div> */}
             </div>
           </div>
         </div>
@@ -130,7 +101,12 @@ const Products = () => {
       </div>
       <div className="right">
         <img className="category-image" src={img[0]} alt="Category Banner" />
-        <List categoryId={categoryId} maxPrice={maxPrice} sort={sort} />
+        <List
+          categoryId={categoryId}
+          maxPrice={maxPrice}
+          sort={sort}
+          subCategory={selectedSubCategory}
+        />
       </div>
     </div>
   );

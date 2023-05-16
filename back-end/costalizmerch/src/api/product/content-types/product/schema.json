@@ -72,6 +72,9 @@
       ],
       "required": true,
       "default": "normal"
+    },
+    "old_price": {
+      "type": "decimal"
     }
   }
 }

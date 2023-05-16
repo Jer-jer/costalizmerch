@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 //? Icons
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
@@ -13,6 +14,7 @@ import Cart from "../Cart";
 import "./index.scss";
 
 const Navbar = () => {
+  const products = useSelector((state) => state.cart.products);
   const [open, setOpen] = useState(false);
   return (
     <div className="navbar">
@@ -63,7 +65,7 @@ const Navbar = () => {
             <PersonRoundedIcon />
             <div className="cart-icon" onClick={() => setOpen(!open)}>
               <LocalMallRoundedIcon />
-              <span>0</span>
+              <span>{products.length}</span>
             </div>
           </div>
         </div>
