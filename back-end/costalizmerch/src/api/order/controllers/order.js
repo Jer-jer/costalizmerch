@@ -15,7 +15,6 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
 
     const lineItems = await Promise.all(
       products.map(async (product) => {
-        // const item = strapi.service("api::product.product").findOne(product.id);
         const item = await strapi.db.query("api::product.product").findOne({
           select: ['title', 'price'],
           where: { id: product.id },
@@ -55,50 +54,3 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
     }
   }
 }));
-
-// module.exports = createCoreController("api::order.order", ({ strapi }) => ({
-//   async create(ctx) {
-//     // const { products } = ctx.request.body;
-
-//     console.log(ctx);
-    
-//     // const lineItems = await Promise.all(
-//     //   products.map(async (product) => {
-//     //     const item = strapi.service("api::product.product").findOne(product.id);
-
-//     //     return {
-//     //       price_data: {
-//     //         currency: "usd",
-//     //         product_data: {
-//     //           name: item.title,
-//     //         },
-
-//     //         unit_amount: ((product.price * 100) / 56.11).toFixed(2),
-//     //       },
-//     //       quantity: item.quantity,
-//     //     };
-//     //   })
-//     // );
-//     // try {
-//     //   const session = await stripe.checkout.sessions.create({
-//     //     mode: "payment",
-//     //     success_url: `${process.env.CLIENT_URL}?sucess=true`,
-//     //     cancel_url: `${process.env.CLIENT_URL}?success=false`,
-//     //     line_items: lineItems,
-//     //     payment_method_type: ["card"],
-//     //   });
-
-//     //   await strapi.service("api::order.order").create({
-//     //     data: {
-//     //       products,
-//     //       stripe_id: session.id,
-//     //     },
-//     //   });
-
-//     //   return { stripeSession: session };
-//     // } catch (err) {
-//     //   ctx.response.status = 500;
-//     //   return err;
-//     // }
-//   },
-// }));

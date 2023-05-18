@@ -35,6 +35,11 @@
                 color: gray;
                 font-weight: 100;
             }
+
+            span:hover {
+                color: $main-color-button-hover-dark !important;
+                transition: 0.3s linear;
+            }
         }
     }
 

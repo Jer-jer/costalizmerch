@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadStripe } from "@stripe/stripe-js";
 
@@ -11,8 +11,17 @@ import { removeItem, resetCart } from "../../redux/cartReducer";
 import { makeRequest } from "../../makeRequest";
 
 const Cart = () => {
+  const [loading, setIsLoading] = useState(false);
   const products = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
+  const buttonClassName = products.length
+    ? loading
+      ? "button disabled-button"
+      : "button"
+    : "button disabled-button";
+  const buttonDisable = products.length
+    ? loading && false
+    : true;
   const totalPrice = () => {
     let total = 0;
 
@@ -25,22 +34,29 @@ const Cart = () => {
   );
 
   const handlePayment = async () => {
+    setIsLoading(true);
     try {
       const stripe = await stripePromise;
-      const res = await makeRequest.post("/orders", {
-        data: {
-          products: products
+      const res = await makeRequest.post(
+        "/orders",
+        {
+          data: {
+            products: products,
+          },
         },
-      }, {
-        headers: {
-          "Content-Type": "application/json",
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
-      });
+      );
+      setIsLoading(false);
       await stripe.redirectToCheckout({
         sessionId: res.data.stripeSession.id,
       });
     } catch (err) {
       console.log(err);
+      setIsLoading(false);
     }
   };
 
@@ -67,7 +83,17 @@ const Cart = () => {
         <span>SUBTOTAL</span>
         <span>Php. {totalPrice()}</span>
       </div>
-      <button onClick={handlePayment}>PROCEED TO CHECKOUT</button>
+      <button
+        className={buttonClassName}
+        onClick={handlePayment}
+        disabled={buttonDisable}
+      >
+        {loading ? (
+          <img src="/img/oval_white.svg" alt="loding" height={15} width={15} />
+        ) : (
+          "PROCEED TO CHECKOUT"
+        )}
+      </button>
       <span className="reset" onClick={() => dispatch(resetCart())}>
         Reset Cart
       </span>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 //? Styles
 import "./index.scss";
@@ -9,18 +10,24 @@ const Footer = () => {
       <div className="top">
         <div className="item">
           <h1>Categories</h1>
-          <span>Shirts</span>
-          <span>Sweatshirts</span>
-          <span>Mugs</span>
-          <span>Accessories</span>
-          <span>New Arrivals</span>
-        </div>
-        <div className="item">
-          <h1>Links</h1>
-          <span>FAQ</span>
-          <span>Pages</span>
-          <span>Compare</span>
-          <span>Cookies</span>
+          <Link className="link" to="/products/1">
+            <span>Shirts</span>
+          </Link>
+          <Link className="link" to="/products/4">
+            <span>Sweatshirts</span>
+          </Link>
+          <Link className="link" to="/products/5">
+            <span>Accessories</span>
+          </Link>
+          <Link className="link" to="/products/6">
+            <span>Cutleries</span>
+          </Link>
+          <Link className="link" to="/products/3">
+            <span>New Products</span>
+          </Link>
+          <Link className="link" to="/products/2">
+            <span>Sale</span>
+          </Link>
         </div>
         <div className="item">
           <h1>About</h1>

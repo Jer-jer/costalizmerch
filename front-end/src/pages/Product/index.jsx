@@ -10,7 +10,7 @@ import { addToCart } from "../../redux/cartReducer";
 
 //? Icons
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
-import BalanceRoundedIcon from "@mui/icons-material/BalanceRounded";
+// import BalanceRoundedIcon from "@mui/icons-material/BalanceRounded";
 
 //? Styles
 import "./index.scss";
@@ -20,7 +20,8 @@ const Product = () => {
   const [selectedImage, setSelectedImage] = useState("img");
   const [quantity, setQuantity] = useState(0);
   const dispatch = useDispatch();
-  const addToCartButton = quantity === 0 ? "add disabled" : "add";
+  const addToCartButton = quantity ? "add" : "add disabled";
+  const addToCartButtonCheck = quantity ? false : true;
 
   const { data, loading, error } = useFetch(
     `/products/${productId}?populate=*`
@@ -93,14 +94,15 @@ const Product = () => {
                   })
                 )
               }
+              disabled={addToCartButtonCheck}
             >
               <ShoppingCartRoundedIcon /> ADD TO CART
             </button>
-            <div className="links">
+            {/* <div className="links">
               <div className="item">
                 <BalanceRoundedIcon /> ADD TO COMPARE
               </div>
-            </div>
+            </div> */}
             <div className="info">
               <span>Vendor: Polo</span>
               <span>Product Type: Sweatshirt</span>

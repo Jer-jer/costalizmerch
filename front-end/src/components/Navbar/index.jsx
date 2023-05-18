@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 //? Icons
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
+// import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+// import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import LocalMallRoundedIcon from "@mui/icons-material/LocalMallRounded";
 
 //? Components
@@ -61,8 +61,8 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="icons">
-            <SearchRoundedIcon />
-            <PersonRoundedIcon />
+            {/* <SearchRoundedIcon />
+            <PersonRoundedIcon /> */}
             <div className="cart-icon" onClick={() => setOpen(!open)}>
               <LocalMallRoundedIcon />
               <span>{products.length}</span>
