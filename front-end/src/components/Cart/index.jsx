@@ -50,10 +50,11 @@ const Cart = () => {
           },
         }
       );
-      setIsLoading(false);
       await stripe.redirectToCheckout({
         sessionId: res.data.stripeSession.id,
       });
+      
+      setIsLoading(false);
     } catch (err) {
       console.log(err);
       setIsLoading(false);
