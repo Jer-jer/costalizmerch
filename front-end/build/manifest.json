@@ -1,0 +1,14 @@
+{
+  "short_name": "Costa Liz Merch",
+  "name": "Costa Liz Resort Merchandise",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

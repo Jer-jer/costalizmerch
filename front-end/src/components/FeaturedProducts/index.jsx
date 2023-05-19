@@ -28,8 +28,6 @@ const TrendingProducts = ({ type }) => {
     `/products?populate=*&[filters][product_type][$eq]=${type}`
   );
 
-    console.log(data);
-
   return (
     <div className="featured-products">
       <div className="right">
